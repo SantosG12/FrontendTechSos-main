@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" *ngIf="verificar()">
+  <button mat-icon-button [routerLink]="['/homes']" class="techsos-button">
+    <mat-icon aria-hidden="true" aria-label="Example home icon">home</mat-icon>
+    <span class="techsos-text">TechSos</span>
+  </button>
+  <button mat-button class="district-button" [matMenuTriggerFor]="menuDistrict">District</button>
+  <button mat-button class="brand-button" [matMenuTriggerFor]="menuBrand">Marca</button>
+  <button mat-button class="another-button">Otro Botón</button>
+</mat-toolbar>
+
+<mat-menu #menuDistrict="matMenu">
+  <button mat-menu-item routerLink="/district">Listar</button>
+  <button mat-menu-item routerLink="/district/insertardistrict">Registrar</button>
+</mat-menu>
+
+<mat-menu #menuBrand="matMenu">
+  <button mat-menu-item routerLink="/brand">Listar</button>
+</mat-menu>
+
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol:
+    <span>{{ role }}</span>
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>
